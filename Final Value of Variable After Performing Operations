@@ -13,6 +13,7 @@ public:
             else if(operations[i]=="X++")
                 x=x+1;
         }
+        
         return x;
     }
 };
