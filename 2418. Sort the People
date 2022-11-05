@@ -1,0 +1,42 @@
+class Solution {
+public:
+    vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
+        int l=names.size();
+        vector< pair<string,int>> v;
+        for(int i=0;i<l;i++)
+        {
+            v.push_back(make_pair(names[i],heights[i]));
+        }
+        for(int i=0;i<l;i++)
+        {
+            for(int j=0;j<l;j++)
+            {
+                if(v[i].second>v[j].second)
+                {
+                    string s;
+                    s=v[i].first;
+                    v[i].first=v[j].first;
+                    v[j].first=s;
+                    int t;
+                     t=v[i].second;
+                    v[i].second=v[j].second;
+                    v[j].second=t;
+                }
+            }
+        }
+        for(int i=0;i<l;i++)
+        {
+            cout<<v[i].first;
+        }
+        for(int i=0;i<l;i++)
+        {
+            cout<<v[i].second;
+        }
+        for(int i=0;i<l;i++)
+        {
+            names[i]=v[i].first;
+        }
+        return names;
+
+    }
+};
